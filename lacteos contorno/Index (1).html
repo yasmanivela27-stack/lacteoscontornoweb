@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lácteos Contorno - Viacha 3850 msnm</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Poppins',Arial;background:#FFFBF0;color:#2D2D2D}
+header{background:linear-gradient(135deg,#0B3D20 0%,#16A34A 50%,#15803D 100%);color:white;padding:40px 18px;text-align:center;position:relative;overflow:hidden}
+header::before{content:'🐄🌿🥛🧀🍯';position:absolute;font-size:40px;opacity:.15;top:10px;left:50%;transform:translateX(-50%)}
+header h1{font-size:32px;font-weight:900;letter-spacing:1px;position:relative}
+header p{font-size:13px;opacity:.9;margin-top:4px;position:relative}
+.badge{display:inline-block;background:#FFC107;color:#111;padding:6px 14px;border-radius:20px;font-size:11px;font-weight:800;margin-top:12px;position:relative}
+.stats{max-width:1100px;margin:-20px auto 10px;background:white;padding:16px 10px;border-radius:18px;display:flex;justify-content:space-around;box-shadow:0 8px 25px rgba(0,0,0,.15);position:relative;z-index:2}
+.stats div{text-align:center;min-width:65px}.stats b{font-size:22px;color:#0B3D20;display:block}.stats span{font-size:10px;color:#666}
+.wrap{max-width:1100px;margin:auto;padding:18px;display:flex;flex-direction:column;gap:20px}
+.card{background:white;border-radius:22px;overflow:hidden;box-shadow:0 8px 22px rgba(0,0,0,.12);border:1px solid #E8F5E9;transition:.2s}
+.card:hover{transform:translateY(-4px)}
+.card img{width:100%;height:240px;object-fit:cover}
+.body{padding:16px}
+.body h3{font-size:18px;color:#0B3D20}
+.desc{font-size:12.5px;color:#666;line-height:1.5;margin:8px 0;min-height:55px}
+.precio{color:#15803D;font-size:26px;font-weight:900;margin:6px 0}
+.origen{font-size:10px;background:#FFF8E1;padding:5px 9px;border-radius:8px;display:inline-block;margin-bottom:6px}
+.stock{font-size:11px;font-weight:700;padding:5px 10px;border-radius:20px;background:#E8F5E9;color:#0B3D20;display:inline-block}
+.stock.bajo{background:#FFEBEE;color:#C62828}
+.btn{width:100%;padding:13px;border:none;border-radius:50px;font-weight:900;color:white;margin-top:10px;font-size:13.5px;cursor:pointer}
+.btn-pedir{background:linear-gradient(135deg,#16A34A,#0B3D20)}
+.btn-conf{background:white;color:#0B3D20;border:2px solid #0B3D20;margin-top:7px}
+.btn-conf:active{background:#0B3D20;color:white}
+.btn:disabled{background:#ccc}
+.panel{max-width:1100px;margin:10px auto;background:linear-gradient(135deg,#F1F8E9,#E8F5E9);padding:16px;border-radius:16px;border:1px dashed #16A34A}
+footer{background:#111;color:#bbb;text-align:center;padding:24px 14px;font-size:11px;line-height:1.8}
+@media(min-width:850px){.wrap{flex-direction:row}.card{width:33%}}
+</style>
+</head>
+<body>
+<header>
+<h1>LÁCTEOS CONTORNO</h1>
+<p>📍 Contorno Centro - Viacha - La Paz - Bolivia | 3.850 msnm</p>
+<p>🐄 Leche pura directo de ordeño - Sin intermediarios</p>
+<div class="badge">✨ 100% ARTESANAL - SRA FELIPA QUISPE</div>
+</header>
+
+<div class="stats">
+<div><b id="c-pedidos">0</b><span>Pedidos</span></div>
+<div><b id="c-bruto">Bs0</b><span>Bruto</span></div>
+<div><b id="c-neto">Bs0</b><span>Neto</span></div>
+<div><b id="c-entregas">0</b><span>Entregas</span></div>
+<div><b id="c-stock">120</b><span>Stock</span></div>
+</div>
+
+<div class="wrap">
+
+<div class="card">
+<img src="IMG-20261009-WA0006.jpg.jpeg" alt="Leche">
+<div class="body">
+<div class="origen">🌱 Origen: 3850 msnm - Ganado criollo</div>
+<h3>🥛 Leche Fresca 1 Litro</h3>
+<p class="desc">Recién ordeñada a las 4am por la Sra Felipa en Contorno Centro. 100% pura, sin agua ni conservantes. Más cremosa por la altura. Ideal para familias, café y desayuno. Entrega en botella retornable limpia.</p>
+<div class="precio">Bs 6</div>
+<div><span class="stock" id="s-leche">Stock: 40 unidades</span> <span style="font-size:10px;color:#16A34A"> ✅ Disponible</span></div>
+<button class="btn btn-pedir" onclick="pedir('leche',6)">🥛 PEDIR LECHE POR WHATSAPP</button>
+<button class="btn btn-conf" onclick="entregar('leche')">📦 Confirmar Entrega Leche</button>
+</div>
+</div>
+
+<div class="card">
+<img src="IMG-20261009-WA0007.jpg.jpeg" alt="Queso">
+<div class="body">
+<div class="origen">🧀 Hecho a mano el mismo día</div>
+<h3>🧀 Queso Fresco 500g</h3>
+<p class="desc">Queso artesanal prensado a mano con cuajo natural. Textura blanda, sabor a campo. Rinde 8 porciones. Sin químicos. Perfecto para llajwa, pan y almuerzo. Se conserva 5 días en frío.</p>
+<div class="precio">Bs 25</div>
+<div><span class="stock" id="s-queso">Stock: 40 unidades</span> <span style="font-size:10px;color:#16A34A"> ✅ Disponible</span></div>
+<button class="btn btn-pedir" onclick="pedir('queso',25)">🧀 PEDIR QUESO POR WHATSAPP</button>
+<button class="btn btn-conf" onclick="entregar('queso')">📦 Confirmar Entrega Queso</button>
+</div>
+</div>
+
+<div class="card">
+<img src="IMG-20261009-WA0005.jpg.jpeg" alt="Manjar">
+<div class="body">
+<div class="origen">⭐ Producto estrella - 3h cocción</div>
+<h3>🍯 Manjar Artesanal 250g</h3>
+<p class="desc">Cocción lenta 3 horas en paila de cobre. Solo leche + azúcar morena de Bermejo. Sin químicos ni harina. Cremoso, brillante, ideal para pan, buñuelos y postres. El favorito de Viacha. 9 de cada 10 repiten.</p>
+<div class="precio">Bs 15</div>
+<div><span class="stock" id="s-manjar">Stock: 40 unidades</span> <span style="font-size:10px;color:#16A34A"> ✅ Disponible</span></div>
+<button class="btn btn-pedir" onclick="pedir('manjar',15)">🍯 PEDIR MANJAR POR WHATSAPP</button>
+<button class="btn btn-conf" onclick="entregar('manjar')">📦 Confirmar Entrega Manjar</button>
+</div>
+</div>
+
+</div>
+
+<div style="max-width:1100px;margin:auto;padding:0 18px 18px">
+<div class="panel">
+<h3 style="font-size:14px;color:#0B3D20">📊 Panel Sra Felipa - BTH Proyecto de Grado Agronomía</h3>
+<p style="font-size:11px;color:#444;line-height:1.5">Cada <b>PEDIR</b> descuenta 1 del stock y sube Pedidos/Bruto/Neto automáticamente. Cada <b>CONFIRMAR ENTREGA</b> sube Entregas. Todo queda guardado en el celular para tu defensa.</p>
+<div style="display:flex;gap:10px;margin-top:12px;justify-content:space-between;font-size:12px;background:white;padding:10px;border-radius:10px">
+<span>Pedidos pendientes:</span><b id="pend">0</b>
+</div>
+<div style="text-align:center;margin-top:10px"><button onclick="resetear()" style="font-size:11px;padding:7px 12px;border-radius:20px;border:1px solid #0B3D20;background:white">🔄 Resetear a 0 pedidos / 40 stock</button></div>
+</div>
+</div>
+
+<footer>
+<b>Sra Felipa Quispe - Administradora Principal</b><br>
+WhatsApp +591 64196269 | Entrega Mié/Sáb 10am Plaza Viacha frente Alcaldía<br>
+Proyecto Piloto Real - Sistema 2,8MB carga 3,2seg con Entel 3G<br>
+www.lacteoscontorno.com.bo
+</footer>
+
+<script>
+let d = JSON.parse(localStorage.getItem('lc_v2')) || {pedidos:0, bruto:0, neto:0, entregas:0, stock:{leche:40, queso:40, manjar:40}};
+function pintar(){
+document.getElementById('c-pedidos').innerText=d.pedidos;
+document.getElementById('c-bruto').innerText='Bs'+d.bruto;
+document.getElementById('c-neto').innerText='Bs'+(d.bruto>280?d.bruto-280:0);
+document.getElementById('c-entregas').innerText=d.entregas;
+document.getElementById('c-stock').innerText=d.stock.leche+d.stock.queso+d.stock.manjar;
+document.getElementById('pend').innerText=d.pedidos-d.entregas;
+['leche','queso','manjar'].forEach(k=>{
+let el=document.getElementById('s-'+k);
+el.innerText='Stock: '+d.stock[k]+' unidades';
+if(d.stock[k]<=10) el.className='stock bajo'; else el.className='stock';
+});
+localStorage.setItem('lc_v2',JSON.stringify(d));
+}
+function pedir(prod,precio){
+if(d.stock[prod]<=0){alert('Sin stock');return;}
+d.stock[prod]--; d.pedidos++; d.bruto+=precio;
+pintar();
+let url="https://wa.me/59164196269?text="+encodeURIComponent("Hola Sra Felipa quiero "+prod.toUpperCase()+" Bs"+precio+" Pedido N°"+d.pedidos+" - Vi lacteoscontorno.com.bo");
+window.location.href=url;
+}
+function entregar(prod){
+if(d.entregas>=d.pedidos){alert('No hay pedidos pendientes. Primero PIDE luego CONFIRMA.');return;}
+d.entregas++; pintar();
+}
+function resetear(){if(confirm('Resetear todo a 0 y stock 40?')){d={pedidos:0,bruto:0,neto:0,entregas:0,stock:{leche:40,queso:40,manjar:40}};pintar();}}
+pintar();
+</script>
+</body>
+</html>
